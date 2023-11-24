@@ -169,6 +169,8 @@ function App(): JSX.Element {
 
   return (
     <SafeAreaView style={styles.container}>
+      <View style={styles.box}>
+      <View style={{backgroundColor:'#E6E6E6' ,width:40,}}><Icon name='user' size={35} style={styles.icon} color='#5a5a5a'/></View>
       <InputText
         placeholder="Full name"
         ChangeText={(text: string) => {
@@ -177,8 +179,11 @@ function App(): JSX.Element {
         keyboardType="default"
         secureText={false}
       />
+      </View>
       {errorVisibleName()}
-
+     
+<View style={styles.box}>
+<View style={{backgroundColor:'#E6E6E6' ,width:40,}}><Icon name='envelope-o' size={33} style={styles.icon} color='#5a5a5a'/></View>
       <InputText
         placeholder="Email Address"
         ChangeText={(text: string) => {
@@ -187,8 +192,11 @@ function App(): JSX.Element {
         keyboardType="email-address"
         secureText={false}
       />
-      {errorVisibleEmail()}
+      </View>
 
+      {errorVisibleEmail()}
+      <View style={styles.box}>
+<View style={{backgroundColor:'#E6E6E6' ,width:40,}}><Icon name='whatsapp' size={35} style={styles.icon} color='#5a5a5a'/></View>
       <InputText
         placeholder="Phone Number"
         ChangeText={(text: string) => {
@@ -197,10 +205,16 @@ function App(): JSX.Element {
         keyboardType="numeric"
         secureText={false}
       />
+      </View>
       {errorVisiblePhone()}
 
-      
+      <View style={styles.box}>
+<View style={{backgroundColor:'#E6E6E6' ,width:40,}}><Icon name='building-o' size={35} style={styles.icon} color='#5a5a5a'/></View>
+    
       <DropdownComponent submitted={submitvar}></DropdownComponent>
+      </View>
+      <View style={styles.box}>
+      <View style={{backgroundColor:'#E6E6E6' ,width:40,}}><Icon name='expeditedssl' size={35} style={styles.icon} color='#5a5a5a'/></View>
       <InputText
         placeholder="Create Password"
         ChangeText={(text: string) => {
@@ -209,8 +223,12 @@ function App(): JSX.Element {
         keyboardType="visible-password"
         secureText={true}
       />
+      </View>
       {errorVisiblePassword()}
 
+      
+      <View style={styles.box}>
+      <View style={{backgroundColor:'#E6E6E6' ,width:40,}}><Icon name='expeditedssl' size={35} style={styles.icon} color='#5a5a5a'/></View>
       <InputText
         placeholder="Repeat Password"
         ChangeText={(text: string) => {
@@ -219,6 +237,7 @@ function App(): JSX.Element {
         keyboardType="visible-password"
         secureText={true}
       />
+      </View>
 
       <TouchableOpacity onPress={handleSubmit}>
         <Text style={styles.accountBtn}>Create Account</Text>
@@ -241,7 +260,7 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     padding: 8,
     borderRadius: 5,
-    paddingHorizontal: 72,
+    paddingHorizontal: 110,
   },
   TextInputs: {
     borderRadius: 5,
@@ -258,6 +277,20 @@ const styles = StyleSheet.create({
   outer: {
     //  marginRight:170,
   },
+  icon:{
+   marginTop:4,
+   marginLeft:4,
+   
+  },
+  box:{
+    flexDirection:'row',
+    borderRadius: 5,
+        borderColor: '#91A3B0',
+        borderWidth: 2,
+        width: '90%',
+        margin: 15,
+        backgroundColor: '#FFFFFF',
+  }
 });
 
 export default App;

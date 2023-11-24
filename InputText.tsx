@@ -36,12 +36,7 @@ const InputText: FC<InputProps> = (props): JSX.Element => {
 };
 const styles = StyleSheet.create({
     TextInputs: {
-        borderRadius: 5,
-        borderColor: '#91A3B0',
-        borderWidth: 2,
-        width: '70%',
-        margin: 15,
-        backgroundColor: '#FFFFFF',
+        
     }
 });
 export default InputText;
