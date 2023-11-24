@@ -1,0 +1,298 @@
+
+import React, { useRef, useState } from 'react';
+import type {PropsWithChildren} from 'react';
+//import Menu from './Menu';
+import DropdownComponent from './DropdownComponent';
+import Dropdown from './Dropdown';
+//import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import Icon from 'react-native-vector-icons/FontAwesome';  
+import {
+  Alert,
+  SafeAreaView,
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  useColorScheme,
+  View,
+} from 'react-native';
+import {
+  Colors,
+  DebugInstructions,
+  Header,
+  LearnMoreLinks,
+  ReloadInstructions,
+} from 'react-native/Libraries/NewAppScreen';
+//import InputText from './InputText';
+import InputText from './InputText';
+
+function App(): JSX.Element {
+const [datavalid,setvaliddata]=useState({
+  one:true,
+  two:false,
+  three:true,
+  four:true,
+})
+console.log("multistate example:",datavalid.two)
+
+  const[validname,setvalidname]=useState<boolean>(true);
+  const[validemail,setvalidemail]=useState<boolean>(true);
+  const[validphone,setvalidphone]=useState<boolean>(true);
+  const[validpassword,setvalidpassword]=useState<boolean>(true);
+  const[submitvar,setsubmitvar]=useState<boolean>(false);
+  const details={
+    fullname:useRef(""),
+    email:useRef(""),
+    phoneNumber:useRef(""),
+    jobType:useRef(""),
+    password:useRef(""),
+    confirmpassword:useRef(""),
+    
+
+  };
+
+
+  function errorvisiblename(){
+    
+    if(!validname){
+      return(
+        <View style={styles.outer}>
+          <Text style={styles.errormsg}>!!! Invalid name</Text>
+          </View>
+      );
+    }
+  }
+
+ function errorvisibleemail(){
+  if(!validemail){
+    return(
+      <View style={styles.outer}>
+        <Text style={styles.errormsg}>!!! Invalid email</Text>
+        </View>
+    );
+  }
+ }
+
+ function errorvisiblephone(){
+  if(!validphone){
+    return(
+      
+        <Text style={styles.errormsg}>!!! Invalid Phone</Text>
+        
+    );
+  }
+ }
+
+ function errorvisiblepassword(){
+  if(!validpassword){
+    return(
+      
+        <Text style={styles.errormsg}>!!! Invalid Pass</Text>
+       
+    );
+  }
+ }
+
+
+
+
+
+
+
+  
+  function handleSubmit(){
+    console.log("Password:",details.password.current)
+    console.log("Confirm Password:",details.confirmpassword.current)
+    setsubmitvar(true);
+
+    setvaliddata({
+      one: true,
+      two: datavalid.two,
+      three:datavalid.three,
+      four:datavalid.four
+     
+  })
+     console.log("setter",datavalid.one);
+
+    if(details.password.current.length<=0)
+    {setvalidpassword(false)}
+   else if(details.password.current!==details.confirmpassword.current){
+    setvalidpassword(false);
+   // Alert.alert("Crete Password  and Repeat Password not matching");
+  }
+  else{
+    setvalidpassword(true);
+  }
+
+
+  let mailIndex=details.email.current.indexOf('@');
+  let length=details.email.current.length;
+  if(length <=0 || mailIndex==-1 || (length-mailIndex)<3 ){
+   setvalidemail(false);
+  //   Alert.alert("Invalid E-Mail Id");
+  }
+  else{
+    setvalidemail(true);
+  }
+
+
+
+  let FullnameLength =details.fullname.current.length;
+  if(FullnameLength<=0){
+   setvalidname(false);
+  //console.log(validname)
+  }
+  for(let i=0;i<FullnameLength;i++){
+         if(details.fullname.current[i]>'0' && details.fullname.current[i]<='9'){
+                   // Alert.alert("Invalid name")  ;
+                  // Alert.alert("Invalid Name");
+                  setvalidname(false);
+         }
+         else{
+          setvalidname(true);
+         }
+        
+  }
+
+
+  let phoneNumberLength=details.phoneNumber.current.length;
+  if(phoneNumberLength<=0 || phoneNumberLength>10){
+    setvalidphone(false);
+  }
+  else if(phoneNumberLength==10){
+    setvalidphone(true);
+  }
+  for(let i=0;i<phoneNumberLength;i++){
+    if(details.phoneNumber.current[i]>'0' && details.phoneNumber.current[i]<='9'){
+              // Alert.alert("Invalid name")  ;
+           setvalidphone(true);  
+    }
+    else{
+      setvalidphone(false);
+      break;
+    }
+   
+}
+
+  
+
+
+
+
+  
+
+  };
+ 
+  return (
+    <ScrollView>
+    <SafeAreaView  style={styles.container}>
+      <InputText  
+      placeholder="Full name" 
+      ChangeText={
+        (text:string)=>{
+               details.fullname.current=text;
+        }
+      }
+     
+     />
+     {errorvisiblename()}
+     
+     <InputText  
+      placeholder="Email Address" 
+      ChangeText={
+        (text:string)=>{
+               details.email.current=text;
+        }
+      }
+     
+     /> 
+     
+     {errorvisibleemail()}
+     <InputText  
+     placeholder="Phone Number" 
+     ChangeText={
+       (text:string)=>{
+              details.phoneNumber.current=text;
+       }
+     }
+    
+    />
+  
+    {errorvisiblephone()}
+     
+
+    <DropdownComponent submitted={submitvar}></DropdownComponent>
+     <Dropdown
+     heading={"Select Job Type"}/>
+     
+
+       <InputText  
+      placeholder="Create Password" 
+      ChangeText={
+        (text:string)=>{
+          details.password.current=text;
+        }
+      }
+     
+     />
+     {errorvisiblepassword()}
+       <InputText  
+      placeholder="Repeat Password" 
+      ChangeText={
+        (text:string)=>{
+          details.confirmpassword.current=text;
+        }
+      }
+     
+     />
+    
+  
+     <TouchableOpacity onPress={handleSubmit}>
+      <Text style={styles.accountBtn}>Create Account</Text>
+      
+     </TouchableOpacity>
+     
+   
+    </SafeAreaView>
+    </ScrollView>
+  );
+}
+
+const styles = StyleSheet.create({
+ container:{
+  justifyContent:'center',
+  alignItems:'center',
+  backgroundColor:'#E6E6E6',
+  height:'100%',
+  
+ },
+ accountBtn:{
+  marginTop:20,
+  fontSize:20,
+  backgroundColor:'#0096FF',
+  color:'#FFFFFF',
+  padding:8,
+  borderRadius:5,
+  paddingHorizontal:72,
+ },
+ TextInputs:{
+  borderRadius:5,
+  borderColor:'#91A3B0',
+  borderWidth:2,
+  width:'70%',
+  margin:15,
+  backgroundColor:'#FFFFFF',
+ },
+ errormsg:{
+  color:'red',
+   
+  marginRight:170,
+
+ },
+ outer:{
+//  marginRight:170,
+ }
+});
+
+export default App;
