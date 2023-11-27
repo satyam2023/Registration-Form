@@ -68,3 +68,9 @@ const Menu: React.FC = (): JSX.Element => {
 };
 
 export default Menu;
+
+ <View style={styles.box}>
+      <View style={{backgroundColor:'#E6E6E6' ,width:40,height:45}}><Icon name='building-o' size={35} style={styles.icon} color='#5a5a5a'/></View>
+    
+      <DropdownComponent submitted={submitvar}></DropdownComponent>
+      </View>

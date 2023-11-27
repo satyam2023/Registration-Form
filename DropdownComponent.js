@@ -36,7 +36,7 @@ const DropdownComponent= ({submitted}) => {
      // arrowicon={<FontAwesome name="chevron-down" size={12} color={'black'} />} 
      // searchicon={<FontAwesome name="search" size={12} color={'black'} />} 
       search={false} 
-      boxStyles={{borderRadius:0,borderWidth:0,}} 
+      boxStyles={{borderWidth:0,}} 
       defaultOption={{ key:'-1', value:'Select Job Type' }}  
     />
     {
@@ -49,13 +49,14 @@ const DropdownComponent= ({submitted}) => {
 const styles = StyleSheet.create({
  
   TextInputs:{
-   
-   width:'89%'
-  
+   borderColor:'red',
+   width:'89%',
+   marginBottom:3,
   },
   errormsg:{
     color:'red',
-    textAlign:'left'
+    textAlign:'left',
+    backgroundColor:'#E6E6E6'
   
    }
  });

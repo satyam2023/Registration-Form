@@ -10,6 +10,7 @@ import com.facebook.react.defaults.DefaultReactNativeHost;
 import com.facebook.soloader.SoLoader;
 import java.util.List;
 import com.oblador.vectoricons.VectorIconsPackage;  
+import com.reactnativecommunity.geolocation.GeolocationPackage;
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -27,6 +28,7 @@ public class MainApplication extends Application implements ReactApplication {
           // new VectorIconsPackage();
           // Packages that cannot be autolinked yet can be added manually here, for example:
            //packages.add(new VectorIconsPackage());
+                packages.add(new GeolocationPackage());
           return packages;
         }
 
