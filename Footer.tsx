@@ -16,10 +16,10 @@ function Footer(): JSX.Element{
         <View 
         style={Styles.FooterContainer}>
        <TouchableOpacity style={Styles.btn}>
-        <Text>Edit</Text>
+        <Text style={{color:'#0000FF'}}>Edit</Text>
        </TouchableOpacity>
-       <TouchableOpacity style={Styles.btn}>
-        <Text>Proceed</Text>
+       <TouchableOpacity style={Styles.probtn}>
+        <Text style={{color:'#FFFFFF'}}>Proceed</Text>
        </TouchableOpacity>
             
         </View>
@@ -32,8 +32,6 @@ const Styles= StyleSheet.create({
         flexDirection:'row',
         justifyContent:'space-evenly',
         Height:100,
-        
-
     },
     btn:{
         margin:10,
@@ -41,6 +39,16 @@ const Styles= StyleSheet.create({
       borderWidth:2,
       borderColor:'#0000FF',
       borderRadius:15,
+    },
+    probtn:{
+        margin:10,
+        padding:10,
+       borderWidth:2,
+       borderColor:'#0000FF',
+       borderRadius:15,
+       backgroundColor:'#0000FF',
+    
+
     }
 });
 

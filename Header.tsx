@@ -16,7 +16,7 @@ function Header(): JSX.Element{
     return(
         <View style={Styles.HeaderContainer}>
          <View style={Styles.firstCircle}> 
-             <Text >1</Text>
+             <Text style={{textAlign:'center', fontSize:30,}} >1</Text>
          </View> 
         
         <View style={Styles.firstline}>
@@ -25,7 +25,7 @@ function Header(): JSX.Element{
          
          
          <View style={Styles.SecondCircle}> 
-             <Text>2</Text>
+             <Text style={{textAlign:'center', fontSize:30,}}>2</Text>
          </View> 
 
          <View style={Styles.firstline}>
@@ -33,7 +33,7 @@ function Header(): JSX.Element{
         </View>
 
          <View style={Styles.thirdCircle}> 
-             <Text>3</Text>
+             <Text style={{textAlign:'center', fontSize:30,}}>3</Text>
          </View> 
      
         </View>
@@ -42,7 +42,7 @@ function Header(): JSX.Element{
 
 const Styles= StyleSheet.create({
     HeaderContainer:{
-        backgroundColor:'#0000FF',
+        backgroundColor:'#FFFFFF',
         flexDirection:'row',
         Height:100,
     },
@@ -53,7 +53,7 @@ const Styles= StyleSheet.create({
           marginBottom:10,
           height:50,
           width:50,
-          backgroundColor:'#FFFFFF',
+          backgroundColor:'#E6E6E6',
           borderRadius:50,
           color:'black',
         
@@ -66,7 +66,7 @@ const Styles= StyleSheet.create({
         marginBottom:10,
         height:50,
         width:50,
-        backgroundColor:'#FFFFFF',
+        backgroundColor:'#E6E6E6',
         borderRadius:50,
     },
     thirdCircle:{
@@ -75,11 +75,11 @@ const Styles= StyleSheet.create({
         marginBottom:10,
         height:50,
         width:50,
-        backgroundColor:'#FFFFFF',
+        backgroundColor:'#E6E6E6',
         borderRadius:50,
     },
     firstline:{
-        backgroundColor:'#FFFFFF', 
+        backgroundColor:'#E6E6E6', 
         height:5,
         width:70,
         marginTop:30,
